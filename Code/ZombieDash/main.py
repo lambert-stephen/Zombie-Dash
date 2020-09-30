@@ -1,6 +1,8 @@
 
+import login
 
 import pygame
+
 
 pygame.init()
 
@@ -12,7 +14,11 @@ clock = pygame.time.Clock()
 
 dead = False
 
+x = login.menu(gameDisplay)
+
 while not dead:
+
+
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -24,4 +30,10 @@ while not dead:
 
 pygame.quit()
 quit()
+
+
+
+
+
+
 
