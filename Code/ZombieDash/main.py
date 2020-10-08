@@ -2,6 +2,7 @@
 import login
 
 import pygame
+import main_menu
 
 
 pygame.init()
@@ -15,7 +16,7 @@ clock = pygame.time.Clock()
 dead = False
 
 x = login.menu(gameDisplay)
-
+i = main_menu.mainMenu(gameDisplay)
 while not dead:
 
 
