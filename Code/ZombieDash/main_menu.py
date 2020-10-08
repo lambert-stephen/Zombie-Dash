@@ -8,9 +8,9 @@ def mainMenu(game_display):
 
     #Set font
     title = pygame.font.SysFont("PopulationZeroBB.ttf", 72)
-    play_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
-    options_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
-    quit_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
+    play_title = pygame.font.SysFont("PopulationZeroBB.ttf", 45)
+    options_title = pygame.font.SysFont("PopulationZeroBB.ttf", 45)
+    quit_title = pygame.font.SysFont("PopulationZeroBB.ttf", 45)
 
     play_pressed = False
 
@@ -64,12 +64,12 @@ def mainMenu(game_display):
 
         #set the textures
         play_texture = play_title.render("Play", True, pygame.Color('black'))
-        game_display.blit(play_texture, (385, 205))
+        game_display.blit(play_texture, (390, 208))
 
         options_texture = options_title.render("Options", True, pygame.Color('black'))
-        game_display.blit(options_texture, (350, 305))
+        game_display.blit(options_texture, (360, 308))
 
         quit_texture = quit_title.render("Exit", True, pygame.Color('black'))
-        game_display.blit(quit_texture, (385, 405))
+        game_display.blit(quit_texture, (385, 408))
 
         pygame.display.update()
