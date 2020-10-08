@@ -46,7 +46,7 @@ class MainMenu(Menu):
             self.game.check_events()
             self.check_input()
             pygame.draw.rect(self.game.display, (255,0,0), (12, 50, 200, 20))
-            pygame.draw.rect(self.game.display, (0,255,0), (12, 50, 200 - (self.game.energy_decrease * 2), 20))
+            pygame.draw.rect(self.game.display, (0,255,0), (12, 50, 200 - (2 * (100 - self.game.energy_level)), 20))
             self.game.draw_text("Energy Left: " + str(self.game.energy_level), 30, self.energyx, self.energyy)
             self.game.draw_text("Zombie Dash", 30, self.game.DISPLAY_W /2, self.game.DISPLAY_H/2 - 70)
             # Sets text at specified positions
