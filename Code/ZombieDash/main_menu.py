@@ -1,19 +1,34 @@
 import pygame
+import player
 
-def mainMenu(game_display):
+
+def draw_text(text, size, x, y, display):
+    font = pygame.font.Font('Chopsic-K6Dp.ttf', size)
+    # Rectangular image to place our text
+    text_surface = font.render(text, True, (255, 255, 255))
+    # Get rectangle
+    text_rect = text_surface.get_rect()
+    # Centers text in rectangle
+    text_rect.center = (x, y)
+    display.blit(text_surface, text_rect)
+
+def mainMenu(game_display, p):
 
     bg = pygame.image.load("zombiebg.jpg")
     #Blit the text
     game_display.blit(bg, (0, 0))
 
     #Set font
-    title = pygame.font.SysFont("The Stranger Brush.ttf", 70)
-    play_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
-    multiplayer_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
-    shop_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
-    options_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
-    quit_title = pygame.font.SysFont("PopulationZeroBB.ttf", 55)
+    title = pygame.font.Font("PopulationZeroBB.ttf", 70)
+    play_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
+    multiplayer_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
+    shop_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
+    options_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
+    quit_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
 
+    playerInfo = p
+
+    clock = pygame.time.Clock()
 
     play_pressed = False
 
@@ -27,23 +42,22 @@ def mainMenu(game_display):
 
                 if playing.collidepoint(event.pos):
                     print("Time to play")
-                    # game_display.fill((0, 0, 0))
-                    # return 1
+                    return "play"
 
                 if multiplayer.collidepoint(event.pos):
-                    print("Time for Multiplayer")
+                    return "multiplayer"
 
                 if shop.collidepoint(event.pos):
-                    print("Time to shop")
+                    return "shop"
 
                 if options.collidepoint(event.pos):
                     print("Options")
-                    # return 1
+                    return "options"
 
 
                 if quitting.collidepoint(event.pos):
                     print("Quitting")
-                    # return 1
+                    return "quit"
 
 
 
@@ -75,29 +89,38 @@ def mainMenu(game_display):
         title_texture = title.render("Zombie Dash", True, pygame.Color('black'))
 
         # Blit text
-        game_display.blit(title_texture, ((400 - (title_texture.get_width() / 2)), 25))
+        game_display.blit(title_texture, ((400 - (title_texture.get_width() / 2)), 75))
 
         #listeners
-        playing = game_display.blit(play_button, (350, 100))
-        multiplayer = game_display.blit(multiplayer_button, (350, 200))
-        shop = game_display.blit(shop_button, (350, 300))
-        options = game_display.blit(options_button, (350, 400))
-        quitting = game_display.blit(quit_button, (350, 500))
+        playing = game_display.blit(play_button, ((400 - (play_button.get_width() / 2)), 180))
+        multiplayer = game_display.blit(multiplayer_button, ((400 - (multiplayer_button.get_width() / 2)), 260))
+        shop = game_display.blit(shop_button, ((400 - (shop_button.get_width() / 2)), 340))
+        options = game_display.blit(options_button, ((400 - (options_button.get_width() / 2)), 420))
+        quitting = game_display.blit(quit_button, ((400 - (quit_button.get_width() / 2)), 500))
 
         #set the textures
         play_texture = play_title.render("Play", True, pygame.Color('black'))
-        game_display.blit(play_texture, (385, 105))
+        game_display.blit(play_texture, ((400 - (play_texture.get_width() / 2)), 190))
 
         multiplayer_texture = multiplayer_title.render("Multiplayer", True, pygame.Color('black'))
-        game_display.blit(multiplayer_texture, (385, 205))
+        game_display.blit(multiplayer_texture, ((400 - (multiplayer_texture.get_width() / 2)), 270))
 
         shop_texture = shop_title.render("Shop", True, pygame.Color('black'))
-        game_display.blit(shop_texture, (385, 305))
+        game_display.blit(shop_texture, ((400 - (shop_texture.get_width() / 2)), 350))
 
         options_texture = options_title.render("Options", True, pygame.Color('black'))
-        game_display.blit(options_texture, (350, 405))
+        game_display.blit(options_texture, ((400 - (options_texture.get_width() / 2)), 430))
 
         quit_texture = quit_title.render("Exit", True, pygame.Color('black'))
-        game_display.blit(quit_texture, (385, 505))
+        game_display.blit(quit_texture, ((400 - (quit_texture.get_width() / 2)), 510))
+
+        pygame.draw.rect(game_display, (255, 0, 0), (12, 50, 200, 20))
+        pygame.draw.rect(game_display, (0, 255, 0), (12, 50, 200 - (2 * (100 - playerInfo.energy_level)), 20))
+        draw_text("Energy Left: " + str(playerInfo.energy_level), 30, playerInfo.energyx, playerInfo.energyy, game_display)
+
+
+
 
         pygame.display.update()
+
+        clock.tick(30)

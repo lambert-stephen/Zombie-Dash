@@ -1,10 +1,11 @@
 import pygame
 from menu import *
 
+import player
 
 class Game():
-    def __init__(self):
-        pygame.init()
+    def __init__(self, playerInfo):
+        # pygame.init()
         pygame.mixer.quit()
         self.running, self.playing = True, False
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
@@ -19,16 +20,31 @@ class Game():
         self.watch = WatchVideoMenu(self)
         # Allows current menu to change
         self.curr_menu = self.main_menu
-        self.energy_level = 100
+        # self.energy_level = 100
         self.energy_decrease = 10
+        self.clock = pygame.time.Clock()
+        self.exit = False
+
+        self.playerInfo = player.Player(playerInfo)
+
+        self.energyx, self.energyy = 175, 25
+
+    def display_energy(self):
+        pygame.draw.rect(self.display, (255, 0, 0), (12, 50, 200, 20))
+        pygame.draw.rect(self.display, (0, 255, 0), (12, 50, 200 - (2 * (100 - self.playerInfo.energy_level)), 20))
+        self.draw_text("Energy Left: " + str(self.playerInfo.energy_level), 30, self.playerInfo.energyx, self.playerInfo.energyy)
+        # pygame.draw.rect(self.display, (255, 0, 0), (12, 50, 200, 20))
+        # pygame.draw.rect(self.display, (0, 255, 0), (12, 50, 200 - (2 * (100 - self.energy_level)), 20))
+        # self.draw_text("Energy Left: " + str(self.energy_level), 30, self.energyx, self.energyy)
 
     # Check our key input
     def check_events(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                self.running, self.playing = False, False
-                # Stops the current menu from running
+                # self.running, self.playing = False, False
+                # # Stops the current menu from running
                 self.curr_menu.run_display = False
+                pygame.quit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     self.START_KEY = True
@@ -43,16 +59,17 @@ class Game():
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
 
     def game_loop(self):
-        while self.playing and self.energy_level >= self.energy_decrease:
+        while self.playing and self.playerInfo.energy_level >= self.energy_decrease:
             self.check_events()
             if self.START_KEY:
                 self.playing = False
-                self.energy_level -= self.energy_decrease
+                self.playerInfo.energy_level -= self.energy_decrease
             #self.display.blit(bg, (0,0))
             self.draw_text('Gameplay', 30, self.DISPLAY_W/2, self.DISPLAY_H / 2)
             self.window.blit(self.display, (0,0))
             pygame.display.update()
             self.reset_keys()
+            self.clock.tick(30)
 
     # Draws our text
     def draw_text(self, text, size, x, y):

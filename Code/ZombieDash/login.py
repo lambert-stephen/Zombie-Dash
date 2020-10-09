@@ -1,7 +1,9 @@
 
 import pygame
 
+import player
 
+clock = pygame.time.Clock()
 
 def menu(display):
 
@@ -16,6 +18,7 @@ def menu(display):
     #For storing username/pass
     user_name = ""
     password = ""
+    hiddenPass = ""
 
     #User Prompts
     user_prompt = "Username:"
@@ -62,7 +65,7 @@ def menu(display):
                     #If succcesful return to main game.
                     display.fill((0, 0, 0))
                     print("login")
-                    return 1
+                    return player.Player(user_name)
 
                 if register_listener.collidepoint(event.pos):
                     #Make an account on the server
@@ -88,9 +91,11 @@ def menu(display):
                     elif event.key == pygame.K_BACKSPACE:
                         print("backspace")
                         password = password[:-1]
+                        hiddenPass = hiddenPass[:-1]
                     else:
                         print("text")
                         password += event.unicode
+                        hiddenPass += "*"
 
 
         google_login = pygame.image.load('ggl_icon.png')
@@ -110,7 +115,7 @@ def menu(display):
         display.blit(bg, (0, 0))
 
         surface = game_font.render(user_name, True, pygame.Color('black'))
-        surface2 = game_font.render(password, True, pygame.Color('black'))
+        surface2 = game_font.render(hiddenPass, True, pygame.Color('black'))
         title_surface = welcome_font.render("Zombie Dash", True, pygame.Color('Red'))
 
         user_prompt_surf = prompt_font.render(user_prompt, True, pygame.Color('Red'))
@@ -142,3 +147,6 @@ def menu(display):
         display.blit(register_surface, (275, 360))
 
         pygame.display.flip()
+
+        clock.tick(30)
+

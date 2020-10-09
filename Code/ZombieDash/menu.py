@@ -12,7 +12,8 @@ class Menu():
         # Cursor to traverse the menu
         self.cursor_rect = pygame.Rect(0,0,20,20)
         # Places cursor to left of text
-        self.offset = - 150;
+        self.offset = - 150
+        self.clock = pygame.time.Clock()
 
     # Draws cursor
     def draw_cursor(self):
@@ -30,13 +31,13 @@ class MainMenu(Menu):
     def __init__(self, game):
         # Gets all variables from Menu class
         Menu.__init__(self, game)
-        self.energyx, self.energyy = 175, 25
         self.state = "Join Match"
         self.startx, self.starty = self.mid_w, self.mid_h + 30
         self.optionsx, self.optionsy = self.mid_w, self.mid_h + 70
         self.watchx, self.watchy = self.mid_w, self.mid_h + 110
         # Aligns cursor with start
         self.cursor_rect.midtop = (self.startx + self.offset, self.starty)
+        self.clock = pygame.time.Clock()
 
     # Displays menu
     def display_menu(self):
@@ -45,9 +46,15 @@ class MainMenu(Menu):
             # Sets logic for our cursor
             self.game.check_events()
             self.check_input()
-            pygame.draw.rect(self.game.display, (255,0,0), (12, 50, 200, 20))
-            pygame.draw.rect(self.game.display, (0,255,0), (12, 50, 200 - (2 * (100 - self.game.energy_level)), 20))
-            self.game.draw_text("Energy Left: " + str(self.game.energy_level), 30, self.energyx, self.energyy)
+
+
+            # pygame.draw.rect(self.game.display, (255,0,0), (12, 50, 200, 20))
+            # pygame.draw.rect(self.game.display, (0,255,0), (12, 50, 200 - (2 * (100 - self.game.energy_level)), 20))
+            # self.game.draw_text("Energy Left: " + str(self.game.energy_level), 30, self.energyx, self.energyy)
+
+            self.game.display_energy()
+
+
             self.game.draw_text("Zombie Dash", 30, self.game.DISPLAY_W /2, self.game.DISPLAY_H/2 - 70)
             # Sets text at specified positions
             self.game.draw_text("Join Match", 30, self.startx, self.starty)
@@ -55,6 +62,9 @@ class MainMenu(Menu):
             self.game.draw_text("Watch Video", 30, self.watchx, self.watchy)
             self.draw_cursor()
             self.blit_screen()
+            self.clock.tick(30)
+
+
 
     def move_cursor(self):
         if self.game.DOWN_KEY:
@@ -85,12 +95,18 @@ class MainMenu(Menu):
         # If player hits start on Join Match, game loop begins
         if self.game.START_KEY:
             if self.state == "Join Match":
+                self.game.START_KEY = False
                 self.game.playing = True
+                self.game.game_loop()
             elif self.state == "Options":
                 self.game.curr_menu = self.game.options
             elif self.state == "Watch Video":
                 self.game.curr_menu = self.game.watch
             print(self.state)
+            self.run_display = False
+        if self.game.BACK_KEY:
+            self.game.reset_keys
+            self.game.exit = True
             self.run_display = False
 
 class OptionsMenu(Menu):
@@ -101,6 +117,7 @@ class OptionsMenu(Menu):
         self.brightnessx, self.brightnessy = self.mid_w, self.mid_h + 70
         self.controlsx, self.controlsy = self.mid_w, self.mid_h + 110
         self.cursor_rect.midtop = (self.volx + self.offset, self.voly)
+        self.clock = pygame.time.Clock()
 
     def display_menu(self):
         self.run_display = True
@@ -113,6 +130,7 @@ class OptionsMenu(Menu):
             self.game.draw_text("Controls", 25, self.controlsx, self.controlsy)
             self.draw_cursor()
             self.blit_screen()
+            self.clock.tick(30)
 
     def check_input(self):
         self.move_cursor()
@@ -154,6 +172,7 @@ class WatchVideoMenu(Menu):
     def __init__(self, game):
         Menu.__init__(self, game)
         self.state = "Watch Video"
+        self.clock = pygame.time.Clock()
 
     def display_menu(self):
         self.run_display = True
@@ -166,16 +185,17 @@ class WatchVideoMenu(Menu):
                 self.run_display = False
 
                 # If energy level is already at 100, don't increment
-                if self.game.energy_level >= 100:
+                if self.game.playerInfo.energy_level >= 100:
                     pass
 
                 # If energy level is greater than 0 and less than or equal to 98, increment
-                elif self.game.energy_level >= 0 and self.game.energy_level <= 98:
-                    self.game.energy_level += 2;
+                elif self.game.playerInfo.energy_level >= 0 and self.game.playerInfo.energy_level <= 98:
+                    self.game.playerInfo.energy_level += 2;
 
             # Draw to Watch Video Screen
             self.game.draw_text("Watch Video", 30, self.mid_w, self.mid_h)
             self.blit_screen()
+            self.clock.tick(30)
 
 
 
