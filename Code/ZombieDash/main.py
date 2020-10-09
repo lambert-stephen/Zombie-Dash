@@ -35,6 +35,9 @@ while currentView != "quit":
 
     if currentView == "multiplayer":
 
+        multiplayerMenu.playerInfo.energy_level = player1.energy_level
+        multiplayerMenu.playerInfo.userName = player1.userName
+
         while not multiplayerMenu.exit:
             multiplayerMenu.curr_menu.display_menu()
         multiplayerMenu.exit = False
@@ -44,13 +47,20 @@ while currentView != "quit":
         currentView = "main menu"
 
     if currentView == "shop":
-        currentView = trial.shop_menu(gameDisplay)
+        currentView = trial.shop_menu(gameDisplay, player1)
 
     if currentView == "main menu":
         currentView = main_menu.mainMenu(gameDisplay, player1)
 
     if currentView == "options":
-        multiplayerMenu.options.display_menu()
+        multiplayerMenu.curr_menu = multiplayerMenu.options
+
+        while not multiplayerMenu.exit:
+            multiplayerMenu.curr_menu.display_menu()
+
+        multiplayerMenu.exit = False
+        player1 = multiplayerMenu.playerInfo
+        currentView = "main menu"
     
 
 

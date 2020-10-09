@@ -4,6 +4,7 @@ class Player():
         self.userName = userName
         self.energy_level = 100
         self.energyx, self.energyy = 175, 25
+        self.money = 1000
 
 
 

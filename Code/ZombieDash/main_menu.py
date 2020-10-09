@@ -25,6 +25,7 @@ def mainMenu(game_display, p):
     shop_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
     options_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
     quit_title = pygame.font.Font("PopulationZeroBB.ttf", 25)
+    font = pygame.font.Font('Chopsic-K6Dp.ttf', 30)
 
     playerInfo = p
 
@@ -33,32 +34,6 @@ def mainMenu(game_display, p):
     play_pressed = False
 
     while not play_pressed:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                pos = pygame.mouse.get_pos()
-
-                if playing.collidepoint(event.pos):
-                    print("Time to play")
-                    return "play"
-
-                if multiplayer.collidepoint(event.pos):
-                    return "multiplayer"
-
-                if shop.collidepoint(event.pos):
-                    return "shop"
-
-                if options.collidepoint(event.pos):
-                    print("Options")
-                    return "options"
-
-
-                if quitting.collidepoint(event.pos):
-                    print("Quitting")
-                    return "quit"
-
 
 
         # play button
@@ -118,9 +93,37 @@ def mainMenu(game_display, p):
         pygame.draw.rect(game_display, (0, 255, 0), (12, 50, 200 - (2 * (100 - playerInfo.energy_level)), 20))
         draw_text("Energy Left: " + str(playerInfo.energy_level), 30, playerInfo.energyx, playerInfo.energyy, game_display)
 
-
+        user_surface = font.render(playerInfo.userName, True, (255, 255, 255))
+        game_display.blit(user_surface, (800 - user_surface.get_width(), 7))
 
 
         pygame.display.update()
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pos = pygame.mouse.get_pos()
+
+                if playing.collidepoint(event.pos) and playerInfo.energy_level >= 10:
+                    print("Time to play")
+                    playerInfo.energy_level -= 10
+                    return "play"
+
+                if multiplayer.collidepoint(event.pos):
+                    return "multiplayer"
+
+                if shop.collidepoint(event.pos):
+                    return "shop"
+
+                if options.collidepoint(event.pos):
+                    print("Options")
+                    return "options"
+
+
+                if quitting.collidepoint(event.pos):
+                    print("Quitting")
+                    return "quit"
 
         clock.tick(30)

@@ -35,7 +35,7 @@ import pygame
 from gui_lib import Button
 
 
-def shop_menu(display):
+def shop_menu(display, p):
 
     clock = pygame.time.Clock()
 
@@ -57,6 +57,12 @@ def shop_menu(display):
     gun = pygame.image.load('gun.png')
     hunter = pygame.image.load('hunter.png')
     rifle = pygame.image.load('rifle.png')
+    energy = pygame.image.load('energy.png')
+    energy = pygame.transform.scale(energy, (37, 37))
+
+    font = pygame.font.Font('Chopsic-K6Dp.ttf', 30)
+
+    player_info = p
 
     submenu = False;
     #pygame.display.set_icon(logout)
@@ -77,6 +83,10 @@ def shop_menu(display):
     button5 = Button(girl, (300, 60), callback=False)
     button55 = Button(girlsmall, (50, 300), callback=False)
     running = True
+
+    energy_button = Button(energy, (200, 50), callback=False)
+
+
 
 
     while not (button4.callback or button5.callback):
@@ -108,23 +118,32 @@ def shop_menu(display):
             screen.blit(button55.image, button55.rect)
         screen.blit(button.image, button.rect)
         screen.blit(button1.image, button1.rect)
-        if button1.callback :
-              screen.blit(tshirt, ((53,110)))
-              screen.blit(ttshirt, ((53,150)))
+
+        if button1.callback:
+            item1 = screen.blit(tshirt, ((53, 110)))
+            item2 = screen.blit(ttshirt, ((53, 150)))
 
         screen.blit(button2.image, button2.rect)
         if button2.callback :
-              print("trousers")
-              screen.blit(trouserssub1, ((103,110)))
-              screen.blit(trouserssub2, ((103,150)))
+              item3 = screen.blit(trouserssub1, ((103,110)))
+              item4 =screen.blit(trouserssub2, ((103,150)))
 
         screen.blit(button3.image, button3.rect)
         if button3.callback :
-              screen.blit(rifle, ((153,110)))
-              screen.blit(hunter, ((153,150)))
+              item5 = screen.blit(rifle, ((153,110)))
+              item6 = screen.blit(hunter, ((153,150)))
+
+        energy_listener = screen.blit(energy_button.image, energy_button.rect)
+
 
         if button.callback:
             return "main menu"
+
+        money_surface = font.render(str(player_info.money)+"$", True, (255, 255, 255))
+        screen.blit(money_surface, (800 - money_surface.get_width(), 600- money_surface.get_height()))
+
+        energy_surface = font.render("Energy: " + str(player_info.energy_level), True, (255, 255, 255))
+        screen.blit(energy_surface, (800 - energy_surface.get_width(), 600 - money_surface.get_height() - money_surface.get_height()))
 
 
         pygame.display.update()
@@ -140,6 +159,38 @@ def shop_menu(display):
                 button2.on_click(event)
                 button3.on_click(event)
 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if button1.callback:
+                    item1 = screen.blit(tshirt, ((53, 110)))
+                    item2 = screen.blit(ttshirt, ((53, 150)))
+
+                    if item1.collidepoint(event.pos):
+                        player_info.money -= 10
+                    if item2.collidepoint(event.pos):
+                        player_info.money -= 10
+
+
+                if button2.callback:
+                    item3 = screen.blit(trouserssub1, ((103, 110)))
+                    item4 = screen.blit(trouserssub2, ((103, 150)))
+
+                    if item3.collidepoint(event.pos):
+                        player_info.money -= 10
+                    if item4.collidepoint(event.pos):
+                        player_info.money -= 10
+
+                if button3.callback:
+                    item5 = screen.blit(rifle, ((153, 110)))
+                    item6 = screen.blit(hunter, ((153, 150)))
+
+                    if item5.collidepoint(event.pos):
+                        player_info.money -= 10
+                    if item6.collidepoint(event.pos):
+                        player_info.money -= 10
+
+                if energy_listener.collidepoint(event.pos):
+                    player_info.energy_level +=30
+                    player_info.money -= 25
 
 
 
