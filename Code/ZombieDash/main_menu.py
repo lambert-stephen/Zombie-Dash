@@ -107,8 +107,8 @@ def mainMenu(game_display, p):
                 pos = pygame.mouse.get_pos()
 
                 if playing.collidepoint(event.pos) and playerInfo.energy_level >= 10:
-                    print("Time to play")
-                    playerInfo.energy_level -= 10
+                    # print("Time to play")
+                    # playerInfo.energy_level -= 10
                     return "play"
 
                 if multiplayer.collidepoint(event.pos):
@@ -126,4 +126,4 @@ def mainMenu(game_display, p):
                     print("Quitting")
                     return "quit"
 
-        clock.tick(30)
+        clock.tick(60)

@@ -6,7 +6,7 @@ import player
 class Game():
     def __init__(self, playerInfo):
         # pygame.init()
-        pygame.mixer.quit()
+        #pygame.mixer.quit()
         self.running, self.playing = True, False
         self.UP_KEY, self.DOWN_KEY, self.START_KEY, self.BACK_KEY = False, False, False, False
         self.DISPLAY_W, self.DISPLAY_H = 800, 600
