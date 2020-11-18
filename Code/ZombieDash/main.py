@@ -7,6 +7,7 @@ import trial
 import game
 import play
 import map_selection
+import watch_ad
 
 import player
 
@@ -34,6 +35,8 @@ currentView = main_menu.mainMenu(gameDisplay, player1)
 
 while currentView != "quit":
 
+
+
     if currentView == "main menu":
         currentView = main_menu.mainMenu(gameDisplay, player1)
 
@@ -48,7 +51,7 @@ while currentView != "quit":
             pygame.mixer.music.play(-1);
 
             #Play game.
-            currentView = play.gamePlay(gameDisplay, selection)
+            currentView = play.gamePlay(gameDisplay, selection, player1)
 
             #Play normal music
             pygame.mixer.music.load("zombiedashtrack.mp3");
@@ -71,6 +74,20 @@ while currentView != "quit":
 
     if currentView == "shop":
         currentView = trial.shop_menu(gameDisplay, player1)
+
+    if currentView == 'ad':
+        pygame.mixer.quit()
+        currentView = watch_ad.watchAd(player1)
+        pygame.init()
+
+        pygame.mixer.music.load("zombiedashtrack.mp3");
+        pygame.mixer.music.play(-1);
+
+        pygame.display.init()
+        gameDisplay = pygame.display.set_mode((800, 600))
+
+        pygame.display.set_caption('Zombie Dash')
+
 
     if currentView == "main menu":
         currentView = main_menu.mainMenu(gameDisplay, player1)

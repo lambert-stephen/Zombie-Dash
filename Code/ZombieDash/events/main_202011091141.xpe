@@ -1,0 +1,13 @@
+#Expyriment 0.10.0 (Python 3.8.5), .xpe-file, coding: cp1252
+#date: Mon Nov 09 2020 11:41:38
+#sha1: 9f946e
+#modules: login.py (c848c8), player.py (9266eb), main_menu.py (135cad), trial.py (f61c8b), gui_lib.py (4b1c00), game.py (cb6d3f), menu.py (581f1d), play.py (845527), tilemap.py (422c2e), events.py (272740), map_selection.py (bb5606), watch_ad.py (3ce00b)
+#display: size=(800, 600), window_mode=False, open_gl=2
+#os: uname_result(system='Windows', node='DESKTOP-3QH8FCV', release='10', version='10.0.18362', machine='AMD64', processor='AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD')
+Time,Type,Event,Value,Detail,Detail2
+5291,Video,playing,longlongman.mp4
+15709,Experiment,paused
+15728,Stimulus,presented,1
+17892,Keyboard,received,y,wait_char
+17892,Experiment,ended
+17913,Stimulus,presented,1

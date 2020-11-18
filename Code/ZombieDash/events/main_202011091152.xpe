@@ -1,0 +1,12 @@
+#Expyriment 0.10.0 (Python 3.8.5), .xpe-file, coding: cp1252
+#date: Mon Nov 09 2020 11:52:16
+#sha1: 55e3d1
+#modules: login.py (c848c8), player.py (9266eb), main_menu.py (135cad), trial.py (f61c8b), gui_lib.py (4b1c00), game.py (cb6d3f), menu.py (581f1d), play.py (845527), tilemap.py (422c2e), events.py (272740), map_selection.py (bb5606), watch_ad.py (b607dd)
+#display: size=(800, 600), window_mode=False, open_gl=2
+#os: uname_result(system='Windows', node='DESKTOP-3QH8FCV', release='10', version='10.0.18362', machine='AMD64', processor='AMD64 Family 23 Model 96 Stepping 1, AuthenticAMD')
+Time,Type,Event,Value,Detail,Detail2
+5151,Video,playing,longlongman.mp4
+24372,stderr,received,'Traceback (most recent call last):'
+24372,stderr,received,'  File "C:/Users/toled/Documents/School/CS 440/GitRepo/Group-13-Fall-2020/Code/ZombieDash/main.py", line 79, in <module>'
+24372,stderr,received,'    pygame.mixer.unpause()'
+24372,stderr,received,'pygame.error: mixer not initialized'

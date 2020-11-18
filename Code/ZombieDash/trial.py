@@ -84,25 +84,70 @@ def shop_menu(display, p):
     button55 = Button(girlsmall, (50, 300), callback=False)
     running = True
 
+
+
     energy_button = Button(energy, (200, 50), callback=False)
 
+    #hitman purchase box
+
+    if p.purchased[1]:
+        item_box1 = pygame.image.load("purchased.png")
+    else:
+        item_box1 = pygame.image.load("notpurchased.png")
+
+    item_box1 = pygame.transform.scale(item_box1, (100, 125))
+
+    if p.purchased[4]:
+        item_box2 = pygame.image.load("purchased.png")
+    else:
+        item_box2 = pygame.image.load("notpurchased.png")
+
+    item_box2 = pygame.transform.scale(item_box2, (100, 125))
+
+    if p.purchased[2]:
+        item_box3 = pygame.image.load("purchased.png")
+    else:
+        item_box3 = pygame.image.load("notpurchased.png")
+
+    item_box3 = pygame.transform.scale(item_box3, (100, 125))
+
+    if p.purchased[6]:
+        item_box4 = pygame.image.load("purchased.png")
+    else:
+        item_box4 = pygame.image.load("notpurchased.png")
+
+    item_box4 = pygame.transform.scale(item_box4, (100, 125))
+
+    if p.purchased[3]:
+        item_box5 = pygame.image.load("purchased.png")
+    else:
+        item_box5 = pygame.image.load("notpurchased.png")
+
+    item_box5 = pygame.transform.scale(item_box5, (100, 125))
+
+    if p.purchased[5]:
+        item_box6 = pygame.image.load("purchased.png")
+    else:
+        item_box6 = pygame.image.load("notpurchased.png")
+
+    item_box6 = pygame.transform.scale(item_box6, (100, 125))
 
 
 
-    while not (button4.callback or button5.callback):
-        screen.fill((255, 255, 255))
-        screen.blit(button4.image, button4.rect)
-        screen.blit(button5.image, button5.rect)
-        pygame.display.update()
-
-        clock.tick(30)
-
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running=False
-            elif event.type ==  pygame.MOUSEBUTTONDOWN :
-                button4.on_click(event)
-                button5.on_click(event)
+    # while not (button4.callback or button5.callback):
+    #     screen.fill((255, 255, 255))
+    #     screen.blit(button4.image, button4.rect)
+    #     screen.blit(button5.image, button5.rect)
+    #     pygame.display.update()
+    #
+    #     clock.tick(30)
+    #
+    #     for event in pygame.event.get():
+    #         if event.type == pygame.QUIT:
+    #             running=False
+    #         elif event.type ==  pygame.MOUSEBUTTONDOWN :
+    #             button4.on_click(event)
+    #             button5.on_click(event)
 
 
     while running:
@@ -111,6 +156,37 @@ def shop_menu(display, p):
 
         screen.fill((255, 0, 0))
         screen.blit(background, (0, 0))
+
+        hitman_listener = display.blit(item_box1, ((400 - (item_box1.get_width() / 2)), 200))
+        hitman = pygame.image.load('hitman1_gun.png')
+        display.blit(hitman, ((400 - (hitman.get_width() / 2)), 238))
+
+        robot_listener = display.blit(item_box2, ((400 - (item_box2.get_width() / 2)), 350))
+        robot = pygame.image.load('robot1_gun.png')
+        display.blit(robot, ((400 - (robot.get_width() / 2)), 388))
+
+
+        oldman_listener = display.blit(item_box3, ((200 - (item_box3.get_width() / 2)), 200))
+        oldman = pygame.image.load('manOld_gun.png')
+        display.blit(oldman, ((200 - (oldman.get_width() / 2)), 238))
+
+        survivor_listener = display.blit(item_box4, ((200 - (item_box4.get_width() / 2)), 350))
+        survivor = pygame.image.load('survivor1_gun.png')
+        display.blit(survivor, ((200 - (survivor.get_width() / 2)), 388))
+
+        manbrown_listener = display.blit(item_box5, ((600 - (item_box5.get_width() / 2)), 200))
+        manbrown = pygame.image.load('manBrown_gun.png')
+        display.blit(manbrown, ((600 - (manbrown.get_width() / 2)), 238))
+
+        solider_listener = display.blit(item_box6, ((600 - (item_box6.get_width() / 2)), 350))
+        soldier = pygame.image.load('soldier1_gun.png')
+        display.blit(soldier, ((600 - (soldier.get_width() / 2)), 388))
+
+
+        #hitmanCollide = screen.blit(hitmanButton.image, hitmanButton.rect)
+        # if hitmanButton.callback :
+        #       print('m a hitman')
+
 
         if button4.callback :
             screen.blit(button41.image, button41.rect)
@@ -163,6 +239,7 @@ def shop_menu(display, p):
                 if button1.callback:
                     item1 = screen.blit(tshirt, ((53, 110)))
                     item2 = screen.blit(ttshirt, ((53, 150)))
+                    print('shirts')
 
                     if item1.collidepoint(event.pos):
                         player_info.money -= 10
@@ -190,9 +267,63 @@ def shop_menu(display, p):
 
                 if energy_listener.collidepoint(event.pos):
                     player_info.energy_level +=30
+                    if player_info.energy_level > 100:
+                        player_info.energy_level = 100
                     player_info.money -= 25
 
+                if hitman_listener.collidepoint(event.pos):
+                    p.current_character = 1
 
+                    if not p.purchased[1]:
+                        p.purchased[1] = True
+                        player_info.money -= 100
+                        item_box1 = pygame.image.load("purchased.png")
+                        item_box1 = pygame.transform.scale(item_box1, (100, 125))
+
+                if oldman_listener.collidepoint(event.pos):
+                    p.current_character = 2
+
+                    if not p.purchased[2]:
+                        p.purchased[2] = True
+                        player_info.money -= 100
+                        item_box3 = pygame.image.load("purchased.png")
+                        item_box3 = pygame.transform.scale(item_box3, (100, 125))
+
+                if manbrown_listener.collidepoint(event.pos):
+                    p.current_character = 3
+
+                    if not p.purchased[3]:
+                        p.purchased[3] = True
+                        player_info.money -= 100
+                        item_box5 = pygame.image.load("purchased.png")
+                        item_box5 = pygame.transform.scale(item_box5, (100, 125))
+
+                if robot_listener.collidepoint(event.pos):
+                    p.current_character = 4
+
+                    if not p.purchased[4]:
+                        p.purchased[4] = True
+                        player_info.money -= 100
+                        item_box2 = pygame.image.load("purchased.png")
+                        item_box2 = pygame.transform.scale(item_box2, (100, 125))
+
+                if solider_listener.collidepoint(event.pos):
+                    p.current_character = 5
+
+                    if not p.purchased[5]:
+                        p.purchased[5] = True
+                        player_info.money -= 100
+                        item_box6 = pygame.image.load("purchased.png")
+                        item_box6 = pygame.transform.scale(item_box6, (100, 125))
+
+                if survivor_listener.collidepoint(event.pos):
+                    p.current_character = 6
+
+                    if not p.purchased[6]:
+                        p.purchased[6] = True
+                        player_info.money -= 100
+                        item_box4 = pygame.image.load("purchased.png")
+                        item_box4 = pygame.transform.scale(item_box4, (100, 125))
 
 
 

@@ -14,6 +14,8 @@ def draw_text(text, size, x, y, display):
 
 def mainMenu(game_display, p):
 
+
+
     bg = pygame.image.load("zombiebg.jpg")
     #Blit the text
     game_display.blit(bg, (0, 0))
@@ -34,7 +36,6 @@ def mainMenu(game_display, p):
     play_pressed = False
 
     while not play_pressed:
-
 
         # play button
         play_button = pygame.image.load("black_button.png")
@@ -68,26 +69,30 @@ def mainMenu(game_display, p):
 
         #listeners
         playing = game_display.blit(play_button, ((400 - (play_button.get_width() / 2)), 180))
-        multiplayer = game_display.blit(multiplayer_button, ((400 - (multiplayer_button.get_width() / 2)), 260))
-        shop = game_display.blit(shop_button, ((400 - (shop_button.get_width() / 2)), 340))
-        options = game_display.blit(options_button, ((400 - (options_button.get_width() / 2)), 420))
-        quitting = game_display.blit(quit_button, ((400 - (quit_button.get_width() / 2)), 500))
+        multiplayer = game_display.blit(multiplayer_button, ((400 - (multiplayer_button.get_width() / 2)), 250))
+        ad = game_display.blit(shop_button, ((400 - (shop_button.get_width() / 2)), 320))
+        shop = game_display.blit(shop_button, ((400 - (shop_button.get_width() / 2)), 390))
+        options = game_display.blit(options_button, ((400 - (options_button.get_width() / 2)), 460))
+        quitting = game_display.blit(quit_button, ((400 - (quit_button.get_width() / 2)), 530))
 
         #set the textures
         play_texture = play_title.render("Play", True, pygame.Color('black'))
         game_display.blit(play_texture, ((400 - (play_texture.get_width() / 2)), 190))
 
         multiplayer_texture = multiplayer_title.render("Multiplayer", True, pygame.Color('black'))
-        game_display.blit(multiplayer_texture, ((400 - (multiplayer_texture.get_width() / 2)), 270))
+        game_display.blit(multiplayer_texture, ((400 - (multiplayer_texture.get_width() / 2)), 260))
+
+        ad_texture = multiplayer_title.render("Watch Ad +10", True, pygame.Color('black'))
+        game_display.blit(ad_texture, ((400 - (ad_texture.get_width() / 2)), 330))
 
         shop_texture = shop_title.render("Shop", True, pygame.Color('black'))
-        game_display.blit(shop_texture, ((400 - (shop_texture.get_width() / 2)), 350))
+        game_display.blit(shop_texture, ((400 - (shop_texture.get_width() / 2)), 400))
 
         options_texture = options_title.render("Options", True, pygame.Color('black'))
-        game_display.blit(options_texture, ((400 - (options_texture.get_width() / 2)), 430))
+        game_display.blit(options_texture, ((400 - (options_texture.get_width() / 2)), 470))
 
         quit_texture = quit_title.render("Exit", True, pygame.Color('black'))
-        game_display.blit(quit_texture, ((400 - (quit_texture.get_width() / 2)), 510))
+        game_display.blit(quit_texture, ((400 - (quit_texture.get_width() / 2)), 540))
 
         pygame.draw.rect(game_display, (255, 0, 0), (12, 50, 200, 20))
         pygame.draw.rect(game_display, (0, 255, 0), (12, 50, 200 - (2 * (100 - playerInfo.energy_level)), 20))
@@ -125,5 +130,9 @@ def mainMenu(game_display, p):
                 if quitting.collidepoint(event.pos):
                     print("Quitting")
                     return "quit"
+
+                if ad.collidepoint(event.pos):
+                    print("Watching Ad")
+                    return "ad"
 
         clock.tick(60)

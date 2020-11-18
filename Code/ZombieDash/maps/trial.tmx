@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="60" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="11" nextobjectid="610">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="60" height="100" tilewidth="32" tileheight="32" infinite="0" nextlayerid="12" nextobjectid="617">
  <tileset firstgid="1" source="[A]Water_pipo.tsx"/>
  <tileset firstgid="3073" source="[A]Dirt_pipo.tsx"/>
  <tileset firstgid="3409" source="[Base]BaseChip_pipo.tsx"/>
@@ -419,6 +419,110 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3427,3428,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3427,3428,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="11" name="consumables">
+  <object id="612" name="shotgun" x="1696" y="3104" width="32" height="32"/>
+  <object id="613" name="machinegun" x="1568" y="3104" width="32" height="32"/>
+  <object id="616" name="medkit" x="1632" y="3136" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup id="10" name="Zombies">
+  <object id="510" name="zombie" x="429.333" y="1880" width="30" height="25.3333"/>
+  <object id="511" name="zombie" x="527.424" y="1757.03" width="30" height="25.3333"/>
+  <object id="512" name="zombie" x="654.697" y="1723.7" width="30" height="25.3333"/>
+  <object id="513" name="zombie" x="700.152" y="1741.88" width="30" height="25.3333"/>
+  <object id="514" name="zombie" x="806.212" y="1705.52" width="30" height="25.3333"/>
+  <object id="515" name="zombie" x="772.879" y="1854" width="30" height="25.3333"/>
+  <object id="516" name="zombie" x="924.394" y="1760.06" width="30" height="25.3333"/>
+  <object id="517" name="zombie" x="906.212" y="1611.58" width="30" height="25.3333"/>
+  <object id="518" name="zombie" x="912.273" y="1829.76" width="30" height="25.3333"/>
+  <object id="519" name="zombie" x="772.879" y="2084.3" width="30" height="25.3333"/>
+  <object id="520" name="zombie" x="536.515" y="2193.39" width="30" height="25.3333"/>
+  <object id="521" name="zombie" x="603.182" y="2014.61" width="30" height="25.3333"/>
+  <object id="522" name="zombie" x="681.97" y="2378.24" width="30" height="25.3333"/>
+  <object id="523" name="zombie" x="642.576" y="2387.33" width="30" height="25.3333"/>
+  <object id="524" name="zombie" x="766.818" y="2493.39" width="30" height="25.3333"/>
+  <object id="525" name="zombie" x="406.212" y="2672.18" width="30" height="25.3333"/>
+  <object id="526" name="zombie" x="254.697" y="2566.12" width="30" height="25.3333"/>
+  <object id="527" name="zombie" x="303.182" y="2884.3" width="30" height="25.3333"/>
+  <object id="528" name="zombie" x="81.9697" y="2772.18" width="30" height="25.3333"/>
+  <object id="529" name="zombie" x="181.97" y="3078.24" width="30" height="25.3333"/>
+  <object id="530" name="zombie" x="424.394" y="3117.64" width="30" height="25.3333"/>
+  <object id="531" name="zombie" x="721.364" y="2960.06" width="30" height="25.3333"/>
+  <object id="532" name="zombie" x="997.121" y="2975.21" width="30" height="25.3333"/>
+  <object id="533" name="zombie" x="903.182" y="2793.39" width="30" height="25.3333"/>
+  <object id="534" name="zombie" x="1054.7" y="2547.94" width="30" height="25.3333"/>
+  <object id="535" name="zombie" x="924.394" y="2354" width="30" height="25.3333"/>
+  <object id="536" name="zombie" x="1088.03" y="2117.64" width="30" height="25.3333"/>
+  <object id="537" name="zombie" x="1233.48" y="2390.36" width="30" height="25.3333"/>
+  <object id="538" name="zombie" x="1539.55" y="2344.91" width="30" height="25.3333"/>
+  <object id="539" name="zombie" x="1669.85" y="2514.61" width="30" height="25.3333"/>
+  <object id="540" name="zombie" x="1651.67" y="2666.12" width="30" height="25.3333"/>
+  <object id="541" name="zombie" x="1397.12" y="2687.33" width="30" height="25.3333"/>
+  <object id="542" name="zombie" x="1803.18" y="2802.48" width="30" height="25.3333"/>
+  <object id="543" name="zombie" x="1627.42" y="2963.09" width="30" height="25.3333"/>
+  <object id="544" name="zombie" x="1245.61" y="2969.15" width="30" height="25.3333"/>
+  <object id="545" name="zombie" x="1115.3" y="3072.18" width="30" height="25.3333"/>
+  <object id="546" name="zombie" x="912.273" y="3144.91" width="30" height="25.3333"/>
+  <object id="549" name="zombie" x="1633.48" y="2314.61" width="30" height="25.3333"/>
+  <object id="550" name="zombie" x="1506.21" y="1972.18" width="30" height="25.3333"/>
+  <object id="551" name="zombie" x="1700.15" y="1890.36" width="30" height="25.3333"/>
+  <object id="552" name="zombie" x="1657.73" y="1475.21" width="30" height="25.3333"/>
+  <object id="553" name="zombie" x="1472.88" y="1563.09" width="30" height="25.3333"/>
+  <object id="554" name="zombie" x="1206.21" y="1669.15" width="30" height="25.3333"/>
+  <object id="555" name="zombie" x="1097.12" y="1426.73" width="30" height="25.3333"/>
+  <object id="556" name="zombie" x="624.394" y="1396.42" width="30" height="25.3333"/>
+  <object id="557" name="zombie" x="369.848" y="1560.06" width="30" height="25.3333"/>
+  <object id="558" name="zombie" x="197.121" y="1375.21" width="30" height="25.3333"/>
+  <object id="559" name="zombie" x="136.515" y="1702.48" width="30" height="25.3333"/>
+  <object id="560" name="zombie" x="281.97" y="1899.45" width="30" height="25.3333"/>
+  <object id="561" name="zombie" x="69.8485" y="2078.24" width="30" height="25.3333"/>
+  <object id="562" name="zombie" x="288.03" y="2166.12" width="30" height="25.3333"/>
+  <object id="563" name="zombie" x="181.97" y="2138.85" width="30" height="25.3333"/>
+  <object id="564" name="zombie" x="115.303" y="2129.76" width="30" height="25.3333"/>
+  <object id="565" name="zombie" x="106.212" y="2205.52" width="30" height="25.3333"/>
+  <object id="566" name="zombie" x="415.303" y="2284.3" width="30" height="25.3333"/>
+  <object id="567" name="zombie" x="1618.33" y="1008.55" width="30" height="25.3333"/>
+  <object id="568" name="zombie" x="1209.24" y="926.727" width="30" height="25.3333"/>
+  <object id="569" name="zombie" x="924.394" y="990.364" width="30" height="25.3333"/>
+  <object id="570" name="zombie" x="854.697" y="817.636" width="30" height="25.3333"/>
+  <object id="571" name="zombie" x="542.576" y="817.636" width="30" height="25.3333"/>
+  <object id="572" name="zombie" x="248.636" y="747.939" width="30" height="25.3333"/>
+  <object id="574" name="zombie" x="406.212" y="1114.61" width="30" height="25.3333"/>
+  <object id="575" name="zombie" x="72.8788" y="1150.97" width="30" height="25.3333"/>
+  <object id="576" name="zombie" x="33.4848" y="563.091" width="30" height="25.3333"/>
+  <object id="577" name="zombie" x="439.545" y="466.121" width="30" height="25.3333"/>
+  <object id="578" name="zombie" x="588.03" y="502.485" width="30" height="25.3333"/>
+  <object id="579" name="zombie" x="427.424" y="520.667" width="30" height="25.3333"/>
+  <object id="580" name="zombie" x="591.061" y="266.121" width="30" height="25.3333"/>
+  <object id="581" name="zombie" x="460.758" y="323.697" width="30" height="25.3333"/>
+  <object id="582" name="zombie" x="372.879" y="363.091" width="30" height="25.3333"/>
+  <object id="583" name="zombie" x="957.727" y="14.6061" width="30" height="25.3333"/>
+  <object id="584" name="zombie" x="751.667" y="157.03" width="30" height="25.3333"/>
+  <object id="585" name="zombie" x="775.909" y="296.424" width="30" height="25.3333"/>
+  <object id="586" name="zombie" x="930.455" y="293.394" width="30" height="25.3333"/>
+  <object id="587" name="zombie" x="1094.09" y="254" width="30" height="25.3333"/>
+  <object id="588" name="zombie" x="1285" y="205.515" width="30" height="25.3333"/>
+  <object id="589" name="zombie" x="1618.33" y="38.8485" width="30" height="25.3333"/>
+  <object id="590" name="zombie" x="1818.33" y="108.545" width="30" height="25.3333"/>
+  <object id="591" name="zombie" x="1833.48" y="463.091" width="30" height="25.3333"/>
+  <object id="592" name="zombie" x="1560.76" y="296.424" width="30" height="25.3333"/>
+  <object id="593" name="zombie" x="1306.21" y="366.121" width="30" height="25.3333"/>
+  <object id="594" name="zombie" x="1688.03" y="511.576" width="30" height="25.3333"/>
+  <object id="595" name="zombie" x="1348.64" y="481.273" width="30" height="25.3333"/>
+  <object id="596" name="zombie" x="1454.7" y="632.788" width="30" height="25.3333"/>
+  <object id="597" name="zombie" x="1633.48" y="835.818" width="30" height="25.3333"/>
+  <object id="598" name="zombie" x="1866.82" y="902.485" width="30" height="25.3333"/>
+  <object id="599" name="zombie" x="1812.27" y="714.606" width="30" height="25.3333"/>
+  <object id="600" name="zombie" x="1788.03" y="805.515" width="30" height="25.3333"/>
+  <object id="601" name="zombie" x="1815.3" y="1338.85" width="30" height="25.3333"/>
+  <object id="602" name="zombie" x="1845.61" y="2038.85" width="30" height="25.3333"/>
+  <object id="603" name="zombie" x="1809.24" y="1857.03" width="30" height="25.3333"/>
+  <object id="604" name="zombie" x="1863.79" y="1544.91" width="30" height="25.3333"/>
+  <object id="605" name="zombie" x="1881.97" y="2369.15" width="30" height="25.3333"/>
+  <object id="606" name="zombie" x="930.455" y="2605.52" width="30" height="25.3333"/>
+  <object id="607" name="zombie" x="591.061" y="2654" width="30" height="25.3333"/>
+  <object id="608" name="zombie" x="460.758" y="2869.15" width="30" height="25.3333"/>
+  <object id="609" name="zombie" x="1418.33" y="3099.45" width="30" height="25.3333"/>
+ </objectgroup>
  <objectgroup id="8" name="Object Layer 1">
   <object id="14" name="wall" x="192" y="2240" width="32" height="832"/>
   <object id="16" name="wall" x="352" y="2336" width="32" height="736"/>
@@ -888,104 +992,5 @@
   <object id="505" name="wall" x="1292.75" y="299.833" width="37" height="15"/>
   <object id="506" name="wall" x="1285.75" y="311.333" width="52.5" height="15"/>
   <object id="507" name="wall" x="1290.75" y="323.333" width="44.5" height="15"/>
- </objectgroup>
- <objectgroup id="10" name="Zombies">
-  <object id="510" name="zombie" x="429.333" y="1880" width="30" height="25.3333"/>
-  <object id="511" name="zombie" x="527.424" y="1757.03" width="30" height="25.3333"/>
-  <object id="512" name="zombie" x="654.697" y="1723.7" width="30" height="25.3333"/>
-  <object id="513" name="zombie" x="700.152" y="1741.88" width="30" height="25.3333"/>
-  <object id="514" name="zombie" x="806.212" y="1705.52" width="30" height="25.3333"/>
-  <object id="515" name="zombie" x="772.879" y="1854" width="30" height="25.3333"/>
-  <object id="516" name="zombie" x="924.394" y="1760.06" width="30" height="25.3333"/>
-  <object id="517" name="zombie" x="906.212" y="1611.58" width="30" height="25.3333"/>
-  <object id="518" name="zombie" x="912.273" y="1829.76" width="30" height="25.3333"/>
-  <object id="519" name="zombie" x="772.879" y="2084.3" width="30" height="25.3333"/>
-  <object id="520" name="zombie" x="536.515" y="2193.39" width="30" height="25.3333"/>
-  <object id="521" name="zombie" x="603.182" y="2014.61" width="30" height="25.3333"/>
-  <object id="522" name="zombie" x="681.97" y="2378.24" width="30" height="25.3333"/>
-  <object id="523" name="zombie" x="642.576" y="2387.33" width="30" height="25.3333"/>
-  <object id="524" name="zombie" x="766.818" y="2493.39" width="30" height="25.3333"/>
-  <object id="525" name="zombie" x="406.212" y="2672.18" width="30" height="25.3333"/>
-  <object id="526" name="zombie" x="254.697" y="2566.12" width="30" height="25.3333"/>
-  <object id="527" name="zombie" x="303.182" y="2884.3" width="30" height="25.3333"/>
-  <object id="528" name="zombie" x="81.9697" y="2772.18" width="30" height="25.3333"/>
-  <object id="529" name="zombie" x="181.97" y="3078.24" width="30" height="25.3333"/>
-  <object id="530" name="zombie" x="424.394" y="3117.64" width="30" height="25.3333"/>
-  <object id="531" name="zombie" x="721.364" y="2960.06" width="30" height="25.3333"/>
-  <object id="532" name="zombie" x="997.121" y="2975.21" width="30" height="25.3333"/>
-  <object id="533" name="zombie" x="903.182" y="2793.39" width="30" height="25.3333"/>
-  <object id="534" name="zombie" x="1054.7" y="2547.94" width="30" height="25.3333"/>
-  <object id="535" name="zombie" x="924.394" y="2354" width="30" height="25.3333"/>
-  <object id="536" name="zombie" x="1088.03" y="2117.64" width="30" height="25.3333"/>
-  <object id="537" name="zombie" x="1233.48" y="2390.36" width="30" height="25.3333"/>
-  <object id="538" name="zombie" x="1539.55" y="2344.91" width="30" height="25.3333"/>
-  <object id="539" name="zombie" x="1669.85" y="2514.61" width="30" height="25.3333"/>
-  <object id="540" name="zombie" x="1651.67" y="2666.12" width="30" height="25.3333"/>
-  <object id="541" name="zombie" x="1397.12" y="2687.33" width="30" height="25.3333"/>
-  <object id="542" name="zombie" x="1803.18" y="2802.48" width="30" height="25.3333"/>
-  <object id="543" name="zombie" x="1627.42" y="2963.09" width="30" height="25.3333"/>
-  <object id="544" name="zombie" x="1245.61" y="2969.15" width="30" height="25.3333"/>
-  <object id="545" name="zombie" x="1115.3" y="3072.18" width="30" height="25.3333"/>
-  <object id="546" name="zombie" x="912.273" y="3144.91" width="30" height="25.3333"/>
-  <object id="549" name="zombie" x="1633.48" y="2314.61" width="30" height="25.3333"/>
-  <object id="550" name="zombie" x="1506.21" y="1972.18" width="30" height="25.3333"/>
-  <object id="551" name="zombie" x="1700.15" y="1890.36" width="30" height="25.3333"/>
-  <object id="552" name="zombie" x="1657.73" y="1475.21" width="30" height="25.3333"/>
-  <object id="553" name="zombie" x="1472.88" y="1563.09" width="30" height="25.3333"/>
-  <object id="554" name="zombie" x="1206.21" y="1669.15" width="30" height="25.3333"/>
-  <object id="555" name="zombie" x="1097.12" y="1426.73" width="30" height="25.3333"/>
-  <object id="556" name="zombie" x="624.394" y="1396.42" width="30" height="25.3333"/>
-  <object id="557" name="zombie" x="369.848" y="1560.06" width="30" height="25.3333"/>
-  <object id="558" name="zombie" x="197.121" y="1375.21" width="30" height="25.3333"/>
-  <object id="559" name="zombie" x="136.515" y="1702.48" width="30" height="25.3333"/>
-  <object id="560" name="zombie" x="281.97" y="1899.45" width="30" height="25.3333"/>
-  <object id="561" name="zombie" x="69.8485" y="2078.24" width="30" height="25.3333"/>
-  <object id="562" name="zombie" x="288.03" y="2166.12" width="30" height="25.3333"/>
-  <object id="563" name="zombie" x="181.97" y="2138.85" width="30" height="25.3333"/>
-  <object id="564" name="zombie" x="115.303" y="2129.76" width="30" height="25.3333"/>
-  <object id="565" name="zombie" x="106.212" y="2205.52" width="30" height="25.3333"/>
-  <object id="566" name="zombie" x="415.303" y="2284.3" width="30" height="25.3333"/>
-  <object id="567" name="zombie" x="1618.33" y="1008.55" width="30" height="25.3333"/>
-  <object id="568" name="zombie" x="1209.24" y="926.727" width="30" height="25.3333"/>
-  <object id="569" name="zombie" x="924.394" y="990.364" width="30" height="25.3333"/>
-  <object id="570" name="zombie" x="854.697" y="817.636" width="30" height="25.3333"/>
-  <object id="571" name="zombie" x="542.576" y="817.636" width="30" height="25.3333"/>
-  <object id="572" name="zombie" x="248.636" y="747.939" width="30" height="25.3333"/>
-  <object id="574" name="zombie" x="406.212" y="1114.61" width="30" height="25.3333"/>
-  <object id="575" name="zombie" x="72.8788" y="1150.97" width="30" height="25.3333"/>
-  <object id="576" name="zombie" x="33.4848" y="563.091" width="30" height="25.3333"/>
-  <object id="577" name="zombie" x="439.545" y="466.121" width="30" height="25.3333"/>
-  <object id="578" name="zombie" x="588.03" y="502.485" width="30" height="25.3333"/>
-  <object id="579" name="zombie" x="427.424" y="520.667" width="30" height="25.3333"/>
-  <object id="580" name="zombie" x="591.061" y="266.121" width="30" height="25.3333"/>
-  <object id="581" name="zombie" x="460.758" y="323.697" width="30" height="25.3333"/>
-  <object id="582" name="zombie" x="372.879" y="363.091" width="30" height="25.3333"/>
-  <object id="583" name="zombie" x="957.727" y="14.6061" width="30" height="25.3333"/>
-  <object id="584" name="zombie" x="751.667" y="157.03" width="30" height="25.3333"/>
-  <object id="585" name="zombie" x="775.909" y="296.424" width="30" height="25.3333"/>
-  <object id="586" name="zombie" x="930.455" y="293.394" width="30" height="25.3333"/>
-  <object id="587" name="zombie" x="1094.09" y="254" width="30" height="25.3333"/>
-  <object id="588" name="zombie" x="1285" y="205.515" width="30" height="25.3333"/>
-  <object id="589" name="zombie" x="1618.33" y="38.8485" width="30" height="25.3333"/>
-  <object id="590" name="zombie" x="1818.33" y="108.545" width="30" height="25.3333"/>
-  <object id="591" name="zombie" x="1833.48" y="463.091" width="30" height="25.3333"/>
-  <object id="592" name="zombie" x="1560.76" y="296.424" width="30" height="25.3333"/>
-  <object id="593" name="zombie" x="1306.21" y="366.121" width="30" height="25.3333"/>
-  <object id="594" name="zombie" x="1688.03" y="511.576" width="30" height="25.3333"/>
-  <object id="595" name="zombie" x="1348.64" y="481.273" width="30" height="25.3333"/>
-  <object id="596" name="zombie" x="1454.7" y="632.788" width="30" height="25.3333"/>
-  <object id="597" name="zombie" x="1633.48" y="835.818" width="30" height="25.3333"/>
-  <object id="598" name="zombie" x="1866.82" y="902.485" width="30" height="25.3333"/>
-  <object id="599" name="zombie" x="1812.27" y="714.606" width="30" height="25.3333"/>
-  <object id="600" name="zombie" x="1788.03" y="805.515" width="30" height="25.3333"/>
-  <object id="601" name="zombie" x="1815.3" y="1338.85" width="30" height="25.3333"/>
-  <object id="602" name="zombie" x="1845.61" y="2038.85" width="30" height="25.3333"/>
-  <object id="603" name="zombie" x="1809.24" y="1857.03" width="30" height="25.3333"/>
-  <object id="604" name="zombie" x="1863.79" y="1544.91" width="30" height="25.3333"/>
-  <object id="605" name="zombie" x="1881.97" y="2369.15" width="30" height="25.3333"/>
-  <object id="606" name="zombie" x="930.455" y="2605.52" width="30" height="25.3333"/>
-  <object id="607" name="zombie" x="591.061" y="2654" width="30" height="25.3333"/>
-  <object id="608" name="zombie" x="460.758" y="2869.15" width="30" height="25.3333"/>
-  <object id="609" name="zombie" x="1418.33" y="3099.45" width="30" height="25.3333"/>
  </objectgroup>
 </map>
